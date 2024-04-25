@@ -72,7 +72,9 @@ import { NIcon } from 'naive-ui'
 import {
   LaptopOutline as WorkIcon,
   LogOutOutline as HomeIcon,
-  Accessibility as AccessibilityIcon
+  Accessibility as AccessibilityIcon,
+  BookOutline as BookIcon,
+  AnalyticsOutline as AnalyticsIcon,
 } from '@vicons/ionicons5'
 
 import { darkTheme, zhTW, dateZhTW, enUS, dateEnUS } from 'naive-ui'
@@ -108,10 +110,10 @@ const menuOptions: MenuOption[] = [
         RouterLink,
         {
           to: {
-            path: '/about'
+            path: '/WaterJar'
           }
         },
-        { default: () => '上班' }
+        { default: () => '水缸特效' }
       ),
     key: 'go-to-work',
     icon: renderIcon(WorkIcon)
@@ -128,6 +130,48 @@ const menuOptions: MenuOption[] = [
         { default: () => '人員資料表' }
       ),
     key: 'go-to-acc',
+    icon: renderIcon(AccessibilityIcon)
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            path: '/BootstrapTable'
+          }
+        },
+        { default: () => 'BootstrapTable' }
+      ),
+    key: 'go-to-bt',
+    icon: renderIcon(BookIcon)
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            path: '/Echarts'
+          }
+        },
+        { default: () => 'Echarts' }
+      ),
+    key: 'go-to-ec',
+    icon: renderIcon(AnalyticsIcon)
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            path: '/PersonnelInformationForm2'
+          }
+        },
+        { default: () => '資料表2' }
+      ),
+    key: 'go-to-acc2',
     icon: renderIcon(AccessibilityIcon)
   }
 ]

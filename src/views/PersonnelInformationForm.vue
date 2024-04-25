@@ -88,15 +88,33 @@
                         教育程度 :
                     </div>
                 </n-gi>
-                <n-form-item-gi :span="8" label="學校名稱">
-                    <n-input v-model:value="model.phone" placeholder="學校名稱" />
-                </n-form-item-gi>
-                <n-form-item-gi :span="8" label="科系">
-                    <n-input v-model:value="model.phone" placeholder="科系" />
-                </n-form-item-gi>
-                <n-form-item-gi :span="8" label="修業起訖年月">
-                    <n-date-picker v-model:value="timestamp" type="monthrange" clearable />
-                </n-form-item-gi>
+                <template v-for="(item, index) in model.schools">
+                    <n-form-item-gi :span="8" label="學校名稱">
+                        <n-input v-model:value="model.schools[index].name" placeholder="學校名稱" />
+                    </n-form-item-gi>
+                    <n-form-item-gi :span="8" label="科系">
+                        <n-input v-model:value="model.schools[index].department" placeholder="科系" />
+                    </n-form-item-gi>
+                    <n-form-item-gi :span="8" label="修業起訖年月">
+                        <n-date-picker v-model:value="model.schools[index].period" type="monthrange" clearable />
+                        <n-button-group>
+                            <n-button style="margin: 0 5px;" @click="addSchool()">
+                                <template #icon>
+                                    <n-icon>
+                                        <AddIcon />
+                                    </n-icon>
+                                </template>
+                            </n-button>
+                            <n-button style="margin: 0 5px;" @click="deleteSchool(index)">
+                                <template #icon>
+                                    <n-icon>
+                                        <CloseCircleIcon />
+                                    </n-icon>
+                                </template>
+                            </n-button>
+                        </n-button-group>
+                    </n-form-item-gi>
+                </template>
                 <n-gi :span="24">
                     <div style="font-size: 20px;margin-bottom: 10px;margin-top: 20px;">
                         職務經歷 :
@@ -115,7 +133,7 @@
                     <n-input v-model:value="model.phone" placeholder="離職原因" />
                 </n-form-item-gi>
                 <n-form-item-gi :span="6" label="服務起訖年月">
-                    <n-date-picker v-model:value="timestamp" type="monthrange" clearable />
+                    <n-date-picker v-model:value="model.timestamp2" type="monthrange" clearable />
                 </n-form-item-gi>
 
 
@@ -135,7 +153,12 @@ import { ref } from 'vue'
 import { FormInst, FormItemRule, useMessage } from 'naive-ui'
 
 
-const timestamp = ref<[number, number]>([1183135260000, Date.now()])
+import {
+    AddCircleOutline as AddIcon,
+    CloseCircleOutline as CloseCircleIcon,
+    School,
+
+} from '@vicons/ionicons5'
 const model = ref({
     number: '',
     department: '',
@@ -144,9 +167,16 @@ const model = ref({
     idNumber: '',
     homePhone: '',
     phone: '',
+    timestamp: '',
+    timestamp2: '',
     checkboxGroupValue: [],
     checkboxGroupValue2: [],
-    checkboxGroupValue3: []
+    checkboxGroupValue3: [],
+    schools: [{
+        name: "",
+        department: "",
+        period: ''
+    }]
 })
 
 const rules = ref(
@@ -185,6 +215,24 @@ const departmentOptions = ref([
         value: '研究四所'
     }
 ])
+function addSchool() {
+    if (model.value.schools.length < 6) {
+        model.value.schools.push({
+            name: "",
+            department: "",
+            period: ''
+        })
+    } else {
+        alert("最多只能新增6筆教育經歷")
+    }
+}
+function deleteSchool(idx) {
+    if (model.value.schools.length > 1) {
+        model.value.schools.splice(idx, 1)
+    } else {
+        alert("至少要一個教育經歷")
+    }
+}
 </script>
 
 

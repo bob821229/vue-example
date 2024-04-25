@@ -10,12 +10,12 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/about',
-      name: 'about',
+      path: '/WaterJar',
+      name: 'WaterJar',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../views/WaterJar.vue')
     },
     {
       path: '/PersonnelInformationForm',
@@ -24,7 +24,31 @@ const router = createRouter({
       // this generates a separate chunk (PersonnelInformationForm.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/PersonnelInformationForm.vue')
+    },{
+      path: '/PersonnelInformationForm2',
+      name: 'PersonnelInformationForm2',
+      // route level code-splitting
+      // this generates a separate chunk (PersonnelInformationForm.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/PersonnelInformationForm2.vue')
+    },
+    {
+      path: '/BootstrapTable',
+      name: 'BootstrapTable',
+      // route level code-splitting
+      // this generates a separate chunk (BootstrapTable.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/BootstrapTable.vue')
+    },
+    {
+      path: '/Echarts',
+      name: 'Echarts',
+      // route level code-splitting
+      // this generates a separate chunk (Echarts.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/Echarts.vue')
     }
   ]
 })
+
 export default router
