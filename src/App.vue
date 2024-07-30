@@ -66,7 +66,6 @@
 </template>
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import Header from './components/Header.vue'
 import { h, ref, Component } from 'vue'
 import { NIcon } from 'naive-ui'
 import {
@@ -81,7 +80,7 @@ import { darkTheme, zhTW, dateZhTW, enUS, dateEnUS } from 'naive-ui'
 import type { MenuOption } from 'naive-ui'
 import { MoonSharp, Sunny } from '@vicons/ionicons5'
 import { watch } from 'vue'
-const theme = ref(null)
+const theme = ref<any>(null)
 function renderIcon(icon: Component) {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
@@ -159,20 +158,6 @@ const menuOptions: MenuOption[] = [
       ),
     key: 'go-to-ec',
     icon: renderIcon(AnalyticsIcon)
-  },
-  {
-    label: () =>
-      h(
-        RouterLink,
-        {
-          to: {
-            path: '/PersonnelInformationForm2'
-          }
-        },
-        { default: () => '資料表2' }
-      ),
-    key: 'go-to-acc2',
-    icon: renderIcon(AccessibilityIcon)
   }
 ]
 
