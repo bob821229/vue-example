@@ -74,6 +74,12 @@ import {
   Accessibility as AccessibilityIcon,
   BookOutline as BookIcon,
   AnalyticsOutline as AnalyticsIcon,
+  MapOutline,
+  StorefrontSharp,
+  Globe,
+  Create,
+  List,
+  Water
 } from '@vicons/ionicons5'
 
 import { darkTheme, zhTW, dateZhTW, enUS, dateEnUS } from 'naive-ui'
@@ -115,7 +121,7 @@ const menuOptions: MenuOption[] = [
         { default: () => '水缸特效' }
       ),
     key: 'go-to-work',
-    icon: renderIcon(WorkIcon)
+    icon: renderIcon(Water)
   },
   {
     label: () =>
@@ -158,6 +164,76 @@ const menuOptions: MenuOption[] = [
       ),
     key: 'go-to-ec',
     icon: renderIcon(AnalyticsIcon)
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            path: '/ArcGIS'
+          }
+        },
+        { default: () => 'ArcGIS' }
+      ),
+    key: 'go-to-arcgis',
+    icon: renderIcon(MapOutline)
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            path: '/JsonServer'
+          }
+        },
+        { default: () => 'POP MART' }
+      ),
+    key: 'go-to-popmart',
+    icon: renderIcon(StorefrontSharp)
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            path: '/Summernote'
+          }
+        },
+        { default: () => 'Summernote' }
+      ),
+    key: 'go-to-Summernote',
+    icon: renderIcon(Create)
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            path: '/ToDo'
+          }
+        },
+        { default: () => 'ToDo' }
+      ),
+    key: 'go-to-ToDo',
+    icon: renderIcon(List)
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            path: '/D3js'
+          }
+        },
+        { default: () => 'D3js' }
+      ),
+    key: 'go-to-D3js',
+    icon: renderIcon(Globe)
   }
 ]
 

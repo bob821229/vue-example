@@ -40,6 +40,46 @@ const router = createRouter({
       // this generates a separate chunk (Echarts.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/Echarts.vue')
+    },
+    {
+      path: '/ArcGIS',
+      name: 'ArcGIS',
+      // route level code-splitting
+      // this generates a separate chunk (Echarts.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ArcGIS.vue')
+    },
+    {
+      path: '/JsonServer',
+      name: 'JsonServer',
+      // route level code-splitting
+      // this generates a separate chunk (Echarts.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/JsonServer.vue')
+    },
+    {
+      path: '/Summernote',
+      name: 'Summernote',
+      // route level code-splitting
+      // this generates a separate chunk (Echarts.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/Summernote.vue')
+    },
+    {
+      path: '/ToDo',
+      name: 'ToDo',
+      // route level code-splitting
+      // this generates a separate chunk (Echarts.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ToDo.vue')
+    },
+    {
+      path: '/D3js',
+      name: 'D3js',
+      // route level code-splitting
+      // this generates a separate chunk (Echarts.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/D3js.vue')
     }
   ]
 })
